@@ -1,0 +1,16 @@
+Rozwiązanie polega na stworzeniu drzewa celem katalogowania mask. 
+Root (korzeń drzewa) reprezentuje maskę 0, następnie syn węzła reprezentującego
+maskę k, reprezentuje maskę k+1 mającą k pierwszych bitów wspólnych ze swoim 
+rodzicem, a na k+1 bicie:
+-0: jeśli jest synem pod wskaźnikiem zero
+-1: jeśli jest synem pod wskaźnikiem one
+Każdy wierzchołek trzyma wartość bool mówiącą o tym czy zarejestrowano maskę, której odpowiada.
+
+Złożoności:
+add() - O(mask)
+del() - O(mask)
+check - O(długość_ścieżki), gdzie długość_ścieżki < 33. (maksymalna maska)
+
+W funkcji del użyłem czyszczenia gałęzi nie dających nam informacji, co może 
+pogorszyć czas pracy programu, ale może się przydać - należy traktować jako
+opcjonalną - w zależności od zastosowania można usunąć.
